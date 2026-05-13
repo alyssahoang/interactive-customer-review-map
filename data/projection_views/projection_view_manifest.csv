@@ -1,4 +1,4 @@
 method,n_rows,path
-PCA,7500,C:\Users\HP\OneDrive - student.uw.edu.pl\PROJECTS\SEM 3-4\NLP-Semantic-P15\submission\data\phase3_multi\projection_views\viz_pca.parquet
-tSNE,7500,C:\Users\HP\OneDrive - student.uw.edu.pl\PROJECTS\SEM 3-4\NLP-Semantic-P15\submission\data\phase3_multi\projection_views\viz_tsne.parquet
-UMAP,7500,C:\Users\HP\OneDrive - student.uw.edu.pl\PROJECTS\SEM 3-4\NLP-Semantic-P15\submission\data\phase3_multi\projection_views\viz_umap.parquet
+PCA,109701,data/projection_views/viz_pca.csv
+tSNE,109701,data/projection_views/viz_tsne.csv
+UMAP,109701,data/projection_views/viz_umap.csv
