@@ -1,0 +1,68 @@
+{
+  "config": {
+    "audit_sample_size": null,
+    "sample_size": null,
+    "min_chars": null,
+    "min_retention_target": 0.9,
+    "random_state": 42,
+    "stability_seeds": [
+      11,
+      21,
+      42,
+      84
+    ],
+    "model_keys": [
+      "bertimbau",
+      "multilingual_minilm",
+      "openclip_text"
+    ],
+    "model_key": "multilingual_minilm",
+    "projection_methods": [
+      "pca",
+      "umap",
+      "tsne"
+    ],
+    "projection_method": "umap",
+    "k_grid": [
+      2,
+      4,
+      6,
+      8,
+      10,
+      12
+    ],
+    "dbscan_eps": [
+      0.15,
+      0.2,
+      0.25
+    ],
+    "dbscan_min_samples": [
+      8,
+      12
+    ]
+  },
+  "n_reviews_modeled": 36567,
+  "embedding_source": "cache:multilingual_minilm_n36567_d384_l2.npy",
+  "preprocessed_cache_path": "C:\\Users\\HP\\OneDrive - student.uw.edu.pl\\PROJECTS\\SEM 3-4\\NLP-Semantic-P15\\data\\processed\\reviews_preprocessed.pkl",
+  "projection_used": "pca",
+  "preprocessed_cache_rows": 36567,
+  "best_k": 7,
+  "selected_min_chars": null,
+  "global_negative_ratio": 0.2892498701014576,
+  "cluster_negative_ratio_std": 0.28682155014895705,
+  "negative_homophily_excess_k20": 0.4138511982544089,
+  "negative_island_count": 0,
+  "negative_island_mass": 0.0,
+  "rq_signal": "diffuse",
+  "models_run": [
+    "bertimbau",
+    "multilingual_minilm",
+    "openclip_text"
+  ],
+  "rq_by_model": {
+    "bertimbau": "islands",
+    "multilingual_minilm": "diffuse",
+    "openclip_text": "islands"
+  },
+  "artifacts_saved_count": 21
+}

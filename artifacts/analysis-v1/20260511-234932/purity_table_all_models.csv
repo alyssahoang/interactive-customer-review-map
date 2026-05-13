@@ -1,0 +1,7 @@
+model_key,algorithm,purity_sentiment,purity_topic_proxy
+bertimbau,kmeans,0.7561189050236552,0.5953181830612301
+bertimbau,spectral,,
+multilingual_minilm,kmeans,0.791724779172478,0.5625837503760222
+multilingual_minilm,spectral,0.6219268739573933,0.3784012907813055
+openclip_text,kmeans,0.6680887138676949,0.5130855689556157
+openclip_text,spectral,,

@@ -1,0 +1,4 @@
+model_a,model_b,metric,delta_mean,ci_low,ci_high,stronger_islandization,n_bootstrap,confidence
+bertimbau,multilingual_minilm,cluster_negative_ratio_std,-0.031203684791913835,-0.034329136074317354,-0.028050159038364022,multilingual_minilm,400,0.95
+bertimbau,openclip_text,cluster_negative_ratio_std,0.07289473001931661,0.0687853260330568,0.07804797746422842,bertimbau,400,0.95
+multilingual_minilm,openclip_text,cluster_negative_ratio_std,0.10409841481123042,0.0999181220004508,0.10873762734724866,multilingual_minilm,400,0.95

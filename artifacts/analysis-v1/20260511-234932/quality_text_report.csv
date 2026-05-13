@@ -1,0 +1,10 @@
+metric,value
+rows_total,98410.0
+rows_non_empty_text,40641.0
+text_non_empty_ratio,0.412976
+text_duplicate_ratio_non_empty,0.123644
+text_length_mean,28.233
+text_length_median,0.0
+token_length_mean,4.824
+distinct_ids,98410.0
+review_score_missing_ratio,0.0

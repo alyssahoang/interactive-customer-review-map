@@ -1,0 +1,8 @@
+group,mean_pairwise_cosine_distance,n_samples,model_key,label_set
+não | de | produto | veio | que,0.6773406468224539,6392,multilingual_minilm,topic
+não | recebi | produto | não recebi | ainda,0.5453128251577356,7639,multilingual_minilm,topic
+prazo | antes | do prazo | entrega | antes do,0.5071048060763252,4207,multilingual_minilm,topic
+muito | recomendo | gostei | tudo | bom,0.49017762736220716,4999,multilingual_minilm,topic
+loja | compra | recomendo | muito | comprar,0.4868321791727085,3645,multilingual_minilm,topic
+produto | prazo | do prazo | do | antes,0.39756836224140946,4856,multilingual_minilm,topic
+produto | qualidade | bom | muito | ótimo,0.38499486926798754,4829,multilingual_minilm,topic

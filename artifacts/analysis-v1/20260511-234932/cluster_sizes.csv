@@ -1,0 +1,8 @@
+cluster_id,count,ratio,model_key
+0,4207,0.11504908797549704,multilingual_minilm
+1,4829,0.13205896026471955,multilingual_minilm
+2,7639,0.2089042032433615,multilingual_minilm
+3,6392,0.17480241748024175,multilingual_minilm
+4,3645,0.09968003937976865,multilingual_minilm
+5,4999,0.1367079607296196,multilingual_minilm
+6,4856,0.1327973309267919,multilingual_minilm

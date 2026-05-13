@@ -1,0 +1,4 @@
+model_key,metric,estimate,ci_low,ci_high,n_bootstrap,confidence
+bertimbau,cluster_negative_ratio_std,0.25552401802412145,0.251538148072187,0.25934118829495406,400,0.95
+multilingual_minilm,cluster_negative_ratio_std,0.28672770281603527,0.28313209179309107,0.2903142519981661,400,0.95
+openclip_text,cluster_negative_ratio_std,0.18262928800480485,0.1775762627558374,0.18757453650795441,400,0.95

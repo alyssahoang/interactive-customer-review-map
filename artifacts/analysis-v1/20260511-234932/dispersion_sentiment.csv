@@ -1,0 +1,4 @@
+group,mean_pairwise_cosine_distance,n_samples,model_key,label_set
+neutral,0.7003029321495704,3248,multilingual_minilm,sentiment
+negative,0.6431274750954638,10577,multilingual_minilm,sentiment
+positive,0.5982351703982016,22742,multilingual_minilm,sentiment
