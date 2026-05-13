@@ -2,14 +2,15 @@
 
 This Streamlit app is the presentation layer for `analysis-v0` outputs.
 
-It loads only from the submission package:
+It loads from repository-root `data/`:
 
-- `submission/data/phase3_multi/projection_views/viz_{umap,tsne,pca}.parquet`
-- `submission/data/phase3_multi/projection_views/topic_proxy_lookup.parquet`
-- `submission/data/phase3_multi/projection_views/review_text_lookup.csv`
-- `submission/data/phase3_multi/projection_views/wordcloud_terms.parquet`
-- `submission/data/olist_order_reviews_dataset.csv`
-- `submission/data/olist_order_reviews_dataset_translated.csv`
+- `data/projection_views/viz_{umap,tsne,pca}.csv` (preferred) or `.parquet`
+- `data/projection_views/topic_proxy_lookup.csv` (preferred) or `.parquet`
+- `data/projection_views/review_text_lookup.csv`
+- `data/projection_views/wordcloud_terms.csv` (preferred) or `.parquet`
+- `data/olist_order_reviews_dataset.csv`
+- `data/olist_order_reviews_dataset_translated.csv`
+- `artifacts/analysis-v1/<run>/semantic_map_points.csv`
 
 ## Features kept for project scope
 
@@ -22,14 +23,7 @@ It loads only from the submission package:
 
 ## Run locally
 
-From `submission/interactive-map-lite`:
-
-```bash
-pip install -r requirements.txt
-streamlit run app.py
-```
-
-Or from `submission` root:
+From repository root:
 
 ```bash
 pip install -r interactive-map-lite/requirements.txt
@@ -38,12 +32,12 @@ streamlit run interactive-map-lite/app.py
 
 ## Data volume note
 
-- Each projection file contains `109,701` rows total (3 models x 36,567 reviews).
-- App default is one model (`MiniLM`), so map view starts around `36,567` points.
-- If multiple models are selected, map rows increase accordingly.
+- Full dataset after filtering/preprocessing is `36,567` reviews.
+- Projection files are stacked by model (`3 x 36,567 = 109,701` rows total).
+- Default map view shows one model at a time.
 
 ## Troubleshooting
 
-- If the app starts with missing data warnings, verify all files above exist under `submission/data`.
-- If snippets are empty, verify `review_text_lookup.csv` is present and includes `review_id`.
+- If the app starts with missing data warnings, verify files above exist under `data/`.
+- If snippets are empty, verify `review_text_lookup.csv` includes `review_id`.
 - If PNG download is unavailable, verify `kaleido` is installed in the active environment.

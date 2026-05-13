@@ -1,4 +1,4 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 import re
 from collections import Counter
@@ -146,13 +146,13 @@ DEFAULT_STOPWORDS = {
 
 
 TOPIC_PHRASE_EN_MAP = {
-    "não recebi": "not received",
+    "nÃ£o recebi": "not received",
     "do prazo": "on time",
     "antes do": "ahead of schedule",
 }
 
 TOPIC_TOKEN_EN_MAP = {
-    "não": "not",
+    "nÃ£o": "not",
     "recebi": "received",
     "produto": "product",
     "ainda": "yet",
@@ -168,7 +168,7 @@ TOPIC_TOKEN_EN_MAP = {
     "do": "the",
     "antes": "before",
     "qualidade": "quality",
-    "ótimo": "great",
+    "Ã³timo": "great",
     "entrega": "delivery",
     "loja": "store",
     "compra": "purchase",
@@ -266,7 +266,10 @@ def _candidate_projection_roots() -> list[Path]:
 
 def _candidate_topic_proxy_pack_paths() -> list[Path]:
     # Optional analysis-v0 export (if present). Primary fallback is label_index.parquet per model.
-    return [ANALYSIS_V0_PROJECTION_ROOT / "topic_proxy_lookup.parquet"]
+    return [
+        ANALYSIS_V0_PROJECTION_ROOT / "topic_proxy_lookup.csv",
+        ANALYSIS_V0_PROJECTION_ROOT / "topic_proxy_lookup.parquet",
+    ]
 
 
 def _candidate_phase3_roots() -> list[Path]:
@@ -281,7 +284,10 @@ def _candidate_text_lookup_paths() -> list[Path]:
 
 def _candidate_wordcloud_pack_paths() -> list[Path]:
     # Optional analysis-v0 export for precomputed n-grams.
-    return [ANALYSIS_V0_PROJECTION_ROOT / "wordcloud_terms.parquet"]
+    return [
+        ANALYSIS_V0_PROJECTION_ROOT / "wordcloud_terms.csv",
+        ANALYSIS_V0_PROJECTION_ROOT / "wordcloud_terms.parquet",
+    ]
 
 
 def _discover_runs() -> tuple[Path | None, list[Path]]:
@@ -306,7 +312,14 @@ def _discover_projection_files() -> tuple[Path | None, dict[str, Path]]:
         if not root.exists():
             continue
 
-        found = sorted(root.glob("viz_*.parquet"), key=lambda p: p.name)
+        found = sorted(
+            [
+                p
+                for p in root.iterdir()
+                if p.is_file() and p.name.startswith("viz_") and p.suffix.lower() in {".csv", ".parquet"}
+            ],
+            key=lambda p: p.name,
+        )
         if not found:
             continue
 
@@ -314,7 +327,10 @@ def _discover_projection_files() -> tuple[Path | None, dict[str, Path]]:
         for path in found:
             method_key = path.stem.replace("viz_", "", 1).lower()
             label = PROJECTION_LABELS.get(method_key, method_key.upper())
-            label_to_path[label] = path
+            prev = label_to_path.get(label)
+            # Prefer CSV to avoid optional parquet dependency on Streamlit Cloud.
+            if prev is None or (prev.suffix.lower() == ".parquet" and path.suffix.lower() == ".csv"):
+                label_to_path[label] = path
 
         if not label_to_path:
             continue
@@ -414,6 +430,15 @@ def _load_parquet(path: Path) -> pd.DataFrame:
         return _read_parquet(str(path), int(path.stat().st_mtime_ns))
     except Exception:
         return pd.DataFrame()
+
+
+def _load_table(path: Path) -> pd.DataFrame:
+    suffix = path.suffix.lower()
+    if suffix == ".csv":
+        return _load_csv(path)
+    if suffix == ".parquet":
+        return _load_parquet(path)
+    return pd.DataFrame()
 
 
 def _normalize_map_df(df: pd.DataFrame) -> pd.DataFrame:
@@ -548,7 +573,7 @@ def _derive_depth(df: pd.DataFrame, depth_mode: str) -> pd.Series:
 def _load_topic_proxy_lookup() -> pd.DataFrame:
     for packed_path in _candidate_topic_proxy_pack_paths():
         if packed_path.exists():
-            df = _load_parquet(packed_path)
+            df = _load_table(packed_path)
             needed = {"model_key", "review_id", "topic_proxy"}
             if needed.issubset(df.columns):
                 out = df[["model_key", "review_id", "topic_proxy"]].copy()
@@ -746,7 +771,7 @@ def _load_precomputed_wordcloud_terms() -> pd.DataFrame:
     for path in _candidate_wordcloud_pack_paths():
         if not path.exists():
             continue
-        df = _load_parquet(path)
+        df = _load_table(path)
         if df.empty or not required.issubset(df.columns):
             continue
 
@@ -867,7 +892,7 @@ def _attach_text_lookup(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def _load_projection_points(projection_path: Path) -> pd.DataFrame:
-    df = _load_parquet(projection_path)
+    df = _load_table(projection_path)
     if df.empty:
         return pd.DataFrame()
     df = _normalize_map_df(df)
@@ -1355,7 +1380,7 @@ def _topic_volume_trend(df: pd.DataFrame, freq_label: str, top_n: int = 6) -> pd
 
 
 def _extract_top_phrases(text_series: pd.Series, ngram_n: int = 2, top_n: int = 15) -> pd.DataFrame:
-    token_pattern = re.compile(r"[a-zA-ZÀ-ÿ']+")
+    token_pattern = re.compile(r"[a-zA-ZÃ€-Ã¿']+")
     phrase_counter: Counter[str] = Counter()
 
     for text in text_series.fillna("").astype(str):
@@ -2518,7 +2543,7 @@ def main() -> None:
     if not projection_files:
         st.error(
             "No analysis-v0 projection outputs found. Expected:\n"
-            "- `data/phase3_multi/projection_views/viz_*.parquet`"
+            "- `data/projection_views/viz_*.csv` (preferred) or `data/projection_views/viz_*.parquet`"
         )
         return
 
@@ -2881,3 +2906,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
