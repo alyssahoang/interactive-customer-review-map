@@ -35,7 +35,7 @@ def _resolve_project_root() -> Path:
 
 
 PROJECT_ROOT = _resolve_project_root()
-ANALYSIS_V0_PHASE3_ROOT = PROJECT_ROOT / "data" / "phase3_multi"
+ANALYSIS_V0_PHASE3_ROOT = PROJECT_ROOT / "data" 
 ANALYSIS_V0_PROJECTION_ROOT = ANALYSIS_V0_PHASE3_ROOT / "projection_views"
 ANALYSIS_V0_ARTIFACT_ROOT = PROJECT_ROOT / "artifacts" / "analysis-v1"
 OLIST_PT_REVIEWS_PATH = PROJECT_ROOT / "data" / "olist_order_reviews_dataset.csv"
