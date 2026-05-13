@@ -1,0 +1,2 @@
+model_key,algorithm,k,silhouette_cosine,calinski_harabasz,davies_bouldin,inertia,fit_rows,eval_rows,status
+bertimbau,kmeans,7,0.06828775256872177,501.3969371628353,3.28222471735477,,36567,12000,recomputed_from_labels

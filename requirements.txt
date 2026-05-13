@@ -1,0 +1,22 @@
+# Core numerical/data stack
+numpy>=1.26,<3
+pandas>=2.2,<3
+scikit-learn>=1.4,<2
+pyarrow>=14,<21
+
+# Visualization stack (notebook + report scripts + app)
+plotly>=5.22,<7
+matplotlib>=3.8,<4
+seaborn>=0.13,<1
+streamlit>=1.40,<2
+wordcloud>=1.9,<2
+
+# Text preprocessing
+nltk>=3.8,<4
+
+# Optional exports
+kaleido>=0.2.1,<1
+
+# Notebook runtime (recommended for local reproduction)
+jupyter>=1.0,<2
+ipykernel>=6.29,<7

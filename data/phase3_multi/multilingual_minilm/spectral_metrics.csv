@@ -1,0 +1,2 @@
+algorithm,k,silhouette_cosine,calinski_harabasz,davies_bouldin,model_key
+spectral,7,-0.2023935317993164,33.42834789805277,1.413041076111434,multilingual_minilm

@@ -1,0 +1,4 @@
+model_key,best_k,k_mode,auto_k_ranked,kmeans_silhouette,spectral_silhouette,kmeans_purity_topic_proxy,kmeans_purity_sentiment
+bertimbau,7,fixed,4,0.06828775256872177,,0.5953181830612301,0.7561189050236552
+multilingual_minilm,7,fixed,2,0.0996757373213768,-0.2023935317993164,0.5625837503760222,0.791724779172478
+openclip_text,7,fixed,2,0.061488810926675797,,0.5130855689556157,0.6680887138676949

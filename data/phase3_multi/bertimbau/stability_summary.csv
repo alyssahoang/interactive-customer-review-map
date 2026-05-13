@@ -1,0 +1,2 @@
+model_key,k,seeds_tested,silhouette_mean,silhouette_std,calinski_mean,calinski_std,davies_mean,davies_std,inertia_mean,inertia_std
+bertimbau,8,4,0.3849877789616585,0.0002473436402129,1332.25916355239,1.235331756925974,3.021271474343665,0.0157606053342241,3245.5866088867188,4.244708660451144

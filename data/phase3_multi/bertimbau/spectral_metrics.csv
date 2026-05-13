@@ -1,0 +1,2 @@
+algorithm,n_clusters,silhouette_cosine,calinski_harabasz,davies_bouldin,status,model_key
+spectral,8,,,,skipped_fast_mode_large_n,bertimbau

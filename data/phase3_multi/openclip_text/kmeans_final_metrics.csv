@@ -1,0 +1,2 @@
+model_key,algorithm,k,silhouette_cosine,calinski_harabasz,davies_bouldin,inertia,fit_rows,eval_rows,status
+openclip_text,kmeans,7,0.061488810926675797,583.41276981374,2.985890937443954,,36567,12000,recomputed_from_labels

@@ -1,0 +1,96 @@
+% unimi_bioscience_template.sty
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{template}[Template for Master's thesis document of the biosciences department at the University of Milan]
+
+% Specify paper size and margins
+\RequirePackage[a4paper, top=3cm, bottom=3cm, outer=2cm, inner=3cm]{geometry}
+
+% Required packages
+\RequirePackage{titlesec} % Customize chapter and section titles
+\RequirePackage{setspace} % Adjust line spacing
+\RequirePackage{graphicx} % Include graphics
+\RequirePackage{float} % Handle floating elements
+\RequirePackage{tocloft} % Customize table of contents
+
+% Table of content and hyperlinks
+\RequirePackage{color} % Color for hyperlinks
+\RequirePackage{hyperref} % Hyperlinks
+\hypersetup{
+    colorlinks=true, % Colored links
+    linktoc=all, % Link both sections and subsections
+    linkcolor=black % Link color
+}
+
+% Font and paragraph settings
+\RequirePackage{mathptmx} % Times New Roman as the main font
+\renewcommand{\rmdefault}{ptm} % Use Times New Roman
+\setstretch{1.5} % Adjust line spacing
+\setlength{\parindent}{1.5cm} % Paragraph indentation
+\setlength{\parskip}{0.5cm} % Paragraph spacing
+
+% Justify text
+\RequirePackage{ragged2e}
+\justifying
+
+% Header and Footer
+\RequirePackage{fancyhdr} % Custom headers and footers
+\pagestyle{fancy}
+\fancyhf{} % Clear all header and footer fields
+\fancyfoot[R]{\thepage} % Right bottom footer for page number
+\renewcommand{\headrulewidth}{0pt} % Remove the header rule line
+
+% Custom title page command
+\newcommand{\mytitlepage}[7]{%
+  \begin{titlepage}
+    \centering
+    % Department logo at the top of the page
+    \includegraphics[width=1\textwidth]{tesiSCIENZE_TECNOLOGIE.jpg}\\
+    \vspace{1cm} % Adjust the vertical space as needed
+    {\large \MakeUppercase{MASTER’S DEGREE IN\\ \bfseries #1} \par} % Degree title
+    \vspace{1cm}
+    \hrule % Horizontal line
+    \vspace{1cm} % Adjust the vertical space as needed
+    {\large \itshape \textbf{\MakeUppercase{#2}} \par} % Thesis title (bold)
+    \vspace{1cm} % Adjust the vertical space as needed
+    
+    \begin{minipage}[H]{\textwidth}
+      \small External Supervisor:\\
+      \normalsize #4\\
+      \\ \small Internal Supervisor: \\
+      \normalsize #3 \\
+      \vspace{1cm}
+    \end{minipage}
+    \begin{minipage}[t]{\textwidth}
+      \raggedleft
+      \small Student Name: \\
+      \normalsize #5\\ % Student name
+      \normalsize ID: #6 % Student number
+    \end{minipage}
+
+    % Academic year section at the bottom of the page
+    \vspace{\fill}
+    {\normalsize Academic Year #7 \par}
+    
+  \end{titlepage}
+}
+
+% Heading styles
+\titleformat{\section}
+  {\normalfont\normalsize\bfseries\MakeUppercase}{\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\normalsize\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries}{\thesubsubsection}{1em}{}
+
+% Define caption formatting
+\RequirePackage{xcolor} % For color customization
+\RequirePackage{caption} % For customizing captions
+\RequirePackage{chngcntr} % For resetting figure numbering
+\RequirePackage{subcaption}
+
+% Table formatting
+\RequirePackage{booktabs} % For better table formatting
+\RequirePackage{tabularx} % For tables that automatically adjust column widths
+\RequirePackage{adjustbox} % To scale or rotate tables
+
+\endinput % End of template.sty

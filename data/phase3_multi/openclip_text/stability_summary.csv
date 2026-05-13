@@ -1,0 +1,2 @@
+model_key,k,seeds_tested,silhouette_mean,silhouette_std,calinski_mean,calinski_std,davies_mean,davies_std,inertia_mean,inertia_std
+openclip_text,8,4,0.2169143483042717,0.0003764053363438,1516.6259341683306,0.0284051582355955,2.411292267816638,0.0018952113581033,674.7047119140625,0.0004863701614535

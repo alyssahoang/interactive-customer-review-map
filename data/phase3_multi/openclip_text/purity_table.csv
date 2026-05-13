@@ -1,0 +1,3 @@
+model_key,algorithm,purity_sentiment,purity_topic_proxy
+openclip_text,kmeans,0.6680887138676949,0.5130855689556157
+openclip_text,spectral,,
